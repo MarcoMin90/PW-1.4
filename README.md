@@ -16,5 +16,5 @@ Gli utenti possono cancellare una prenotazione esistente utilizzando l'email ass
    2) Gestione del Database :
        Tutti i dati delle prenotazioni vengono memorizzati in un database MySQL.
       
-API RESTful :
+   3) API RESTful :
         L'app espone due endpoint principali (/prenota e /cancella) per interagire con il sistema.
