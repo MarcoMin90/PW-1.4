@@ -4,7 +4,7 @@ Questo script è una piccola applicazione web costruita con Flask, un framework 
 
 di seguito lo use case diagram
 
-![diagramma](https://github.com/user-attachments/assets/1789625a-dfd1-4bd4-893d-11c494881187)
+![use case backend](https://github.com/user-attachments/assets/52e03725-0d81-4f22-be38-b7e57fae7ddd)
 
 Funzionalità Chiave
  1)  Prenotazione di una Stanza :
