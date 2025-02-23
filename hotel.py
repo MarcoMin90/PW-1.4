@@ -56,7 +56,7 @@ def prenota():
 
         return jsonify({'success': True, 'message': 'Prenotazione confermata', 'prenotazione_id': nuova_prenotazione.id})
     except Exception as e:
-        return jsonify({'success': False, 'message': str(e)}), 500
+        return jsonify({'success': False, 'message': str(e)}), 200
     
 @app.route('/cancella', methods=['POST'])
 def cancella():
@@ -65,13 +65,13 @@ def cancella():
         email_cliente = data.get('email')  # Recupera l'email dal JSON
 
         if not email_cliente:
-            return jsonify({'success': False, 'message': 'Email non fornita'}), 400
+            return jsonify({'success': False, 'message': 'Email non fornita'}), 404
         
         # Cerca la prenotazione per email
         prenotazione = Prenotazione.query.filter_by(email_cliente=email_cliente).first()
         
         if prenotazione is None:
-            return jsonify({'success': False, 'message': 'Prenotazione non trovata'}), 404
+            return jsonify({'success': False, 'message': 'Prenotazione non trovata'}), 400
 
         # Se la prenotazione esiste, cancellala
         db.session.delete(prenotazione)
@@ -80,7 +80,7 @@ def cancella():
         return jsonify({'success': True, 'message': 'Prenotazione cancellata con successo'})
     
     except Exception as e:
-        return jsonify({'success': False, 'message': str(e)}), 500
+        return jsonify({'success': False, 'message': str(e)}), 200
 
 
 if __name__ == '__main__':
